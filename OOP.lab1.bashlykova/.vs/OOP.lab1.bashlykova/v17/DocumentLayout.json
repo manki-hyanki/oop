@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop.lab1.bashlykova\\oop.lab1.bashlykova\\obj\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|solutionrelative:oop.lab1.bashlykova\\obj\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop.lab1.bashlykova\\oop.lab1.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|solutionrelative:oop.lab1.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop.lab1.bashlykova\\oop.lab1.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|solutionrelative:oop.lab1.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\oop.lab1.bashlykova\\obj\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4E872833-3DFC-449D-93F2-56728B07FDA1}|OOP.lab1.bashlykova\\OOP.lab1.bashlykova.csproj|solutionrelative:oop.lab1.bashlykova\\obj\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "RelativeDocumentMoniker": "OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "ToolTip": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\obj\\Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "OOP.lab1.bashlykova\\obj\\Form2.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T17:52:18.099Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\Form1.cs",
+              "RelativeDocumentMoniker": "OOP.lab1.bashlykova\\Form1.cs",
+              "ToolTip": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "OOP.lab1.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-29T17:32:16.427Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "RelativeDocumentMoniker": "OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "ToolTip": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "RelativeToolTip": "OOP.lab1.bashlykova\\obj\\Form2.cs",
+              "ViewState": "AgIAAJAAAAAAAAAAAAA3wK0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-27T16:32:43.194Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\Form1.cs",
+              "RelativeDocumentMoniker": "OOP.lab1.bashlykova\\Form1.cs",
+              "ToolTip": "C:\\Users\\xante\\source\\repos\\OOP.lab1.bashlykova\\OOP.lab1.bashlykova\\Form1.cs",
+              "RelativeToolTip": "OOP.lab1.bashlykova\\Form1.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAgwI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T18:17:57.38Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
