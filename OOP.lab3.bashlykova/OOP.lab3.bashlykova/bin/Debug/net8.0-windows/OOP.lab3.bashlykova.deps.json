@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "OOP.lab3.bashlykova/1.0.0": {
+        "runtime": {
+          "OOP.lab3.bashlykova.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OOP.lab3.bashlykova/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
