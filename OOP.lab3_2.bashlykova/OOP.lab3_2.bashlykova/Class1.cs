@@ -41,13 +41,22 @@ namespace OOP.lab3_2.bashlykova
         { 
             if(A >=0 && A <= 100)
                 this.A = A;
+               
+            if (this.A > this.C) 
+            {
+                this.C = this.A;
+            }
+            recalculate_B();
             observers.Invoke(this, null);
         }
 
         public void set_B (int B)
         {
-            if (B >=0 && B <= 100)
+            if (B >= get_A() && B <= get_C())
                 this.B = B;
+            //else
+            //    this.B = (get_A()) + ((get_C() - get_A()) / 2);
+            recalculate_B();
             observers.Invoke(this, null);
         }
 
@@ -55,7 +64,33 @@ namespace OOP.lab3_2.bashlykova
         {
             if(C >=0 && C <= 100)
                 this.C = C;
+            if (this.C < this.A)
+            {
+                this.A = this.C;
+            }
+            recalculate_B();
+
             observers.Invoke(this, null);
         }
+
+
+
+        private void recalculate_B() {
+            int new_B;
+            if (get_B() > get_C())
+            {
+                new_B = get_C();
+                set_B(new_B);
+            }
+            else if (get_B() < get_A())
+            {
+                new_B = get_A();
+                set_B(new_B);
+            }
+        }
+
+
+
+        
     }
 }
