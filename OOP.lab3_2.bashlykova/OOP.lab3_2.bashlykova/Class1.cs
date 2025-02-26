@@ -54,8 +54,8 @@ namespace OOP.lab3_2.bashlykova
         {
             if (B >= get_A() && B <= get_C())
                 this.B = B;
-            //else
-            //    this.B = (get_A()) + ((get_C() - get_A()) / 2);
+            else
+                this.B = this.A;
             recalculate_B();
             observers.Invoke(this, null);
         }
