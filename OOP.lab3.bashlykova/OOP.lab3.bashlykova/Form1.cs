@@ -19,34 +19,36 @@ namespace OOP.lab3.bashlykova
 
         private void PaintBox_MouseClick(object sender, MouseEventArgs e)
         {
-            bool permission = true; //разрешение для рисования
             bool isCtrlPressed = (ModifierKeys & Keys.Control) == Keys.Control;//проверка нажатия кнопки ctrl
 
-            foreach (CCircle existing_circle in circle_container.Get_CCircles()) //сбрасывание выделения если не нажат ctrl
+            foreach (CCircle existing_circle in circle_container.Get_CCircles()) //сбрасывание выделения, если не нажат ctrl
             {
                 if (!isCtrlPressed)
                     existing_circle.setIsSelected(false);
             }
 
-            foreach (CCircle existing_circle in circle_container.Get_CCircles())
+            // поиск круга, в кот попала точка
+            CCircle clickedCircle = circle_container.FindCircleAtPoint(e.X, e.Y);
+
+            if (clickedCircle != null)
             {
-
-                double distance = Math.Sqrt(Math.Pow(e.X - existing_circle.getX(), 2) + Math.Pow(e.Y - existing_circle.getY(), 2));
-
-                if (distance <= existing_circle.getR())
+                foreach (var circle in circle_container.Get_CCircles())
                 {
-                    existing_circle.setIsSelected(true);
-                    PaintBox.Invalidate();
-                    permission = false;
-                    //break; // для выделения одного на пересечении
+                    if (circle.ContainsPoint(e.X, e.Y))
+                    {
+                        circle.setIsSelected(true);
+                        // break;  // для выделения одного на пересечении
+                    }
                 }
+
             }
-            if (permission)
+            else
             {
-                CCircle circle = new CCircle(e.X, e.Y);
-                circle_container.Add_Circle(circle);
-                PaintBox.Invalidate();
+                // если круг не найден, создаем новый
+                CCircle newCircle = new CCircle(e.X, e.Y);
+                circle_container.Add_Circle(newCircle);
             }
+            PaintBox.Invalidate();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -78,18 +80,7 @@ namespace OOP.lab3.bashlykova
         private void PaintBox_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
-            foreach (var circle in circle_container.Get_CCircles())
-            {
-                Pen pen;
-                if (circle.getIsSelected())
-                    pen = new Pen(Color.Blue, 3);
-                else
-                    pen = new Pen(Color.Black, 3);
-
-                g.DrawEllipse(pen, circle.getX() - circle.getR(), circle.getY() - circle.getR(), circle.getR() * 2, circle.getR() * 2);
-                pen.Dispose();
-            }
+            circle_container.DrawAll(e.Graphics);
         }
 
         private void Form1_Resize(object sender, EventArgs e)
