@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj": {}
+    "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj": {}
   },
   "projects": {
-    "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj": {
+    "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj",
+        "projectUniqueName": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj",
         "projectName": "OOP.lab3.bashlykova",
-        "projectPath": "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj",
+        "projectPath": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj",
         "packagesPath": "C:\\Users\\xante\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\obj\\",
+        "outputPath": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

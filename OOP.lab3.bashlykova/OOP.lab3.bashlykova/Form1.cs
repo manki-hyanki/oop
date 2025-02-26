@@ -92,7 +92,5 @@ namespace OOP.lab3.bashlykova
         {
             this.Invalidate();
         }
-
-
     }
 }

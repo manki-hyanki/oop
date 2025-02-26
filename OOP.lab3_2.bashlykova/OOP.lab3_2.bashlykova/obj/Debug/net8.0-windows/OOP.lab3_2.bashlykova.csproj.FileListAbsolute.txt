@@ -15,3 +15,4 @@ C:\Users\xante\source\repos\oop\oop\OOP.lab3_2.bashlykova\OOP.lab3_2.bashlykova\
 C:\Users\xante\source\repos\oop\oop\OOP.lab3_2.bashlykova\OOP.lab3_2.bashlykova\obj\Debug\net8.0-windows\OOP.lab3_2.bashlykova.pdb
 C:\Users\xante\source\repos\oop\oop\OOP.lab3_2.bashlykova\OOP.lab3_2.bashlykova\obj\Debug\net8.0-windows\OOP.lab3_2.bashlykova.genruntimeconfig.cache
 C:\Users\xante\source\repos\oop\oop\OOP.lab3_2.bashlykova\OOP.lab3_2.bashlykova\obj\Debug\net8.0-windows\ref\OOP.lab3_2.bashlykova.dll
+C:\Users\xante\source\repos\oop\oop\OOP.lab3_2.bashlykova\OOP.lab3_2.bashlykova\bin\Debug\net8.0-windows\OOP.lab3_2.bashlykova.dll.config

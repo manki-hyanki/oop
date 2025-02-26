@@ -8,6 +8,7 @@ namespace OOP.lab3_2.bashlykova
             InitializeComponent();
             Numbers = new Numbers();
             Numbers.observers += new System.EventHandler(this.update_from_numbers); //подписка на обновления модели
+            update_from_numbers(this, null);
         }
 
         private void update_from_numbers(object sender, EventArgs e)
@@ -72,6 +73,21 @@ namespace OOP.lab3_2.bashlykova
         private void trackBarC_Scroll(object sender, EventArgs e)
         {
             Numbers.set_C(trackBarC.Value);
+        }
+
+        private void textBoxA_TextChanged(object sender, EventArgs e)
+        {
+            textBoxA.Text = Numbers.get_A().ToString();
+        }
+
+        private void textBoxB_TextChanged(object sender, EventArgs e)
+        {
+            textBoxB.Text = Numbers.get_B().ToString();
+        }
+
+        private void textBoxC_TextChanged(object sender, EventArgs e)
+        {
+            textBoxC.Text = Numbers.get_C().ToString();
         }
     }
 }

@@ -26,10 +26,11 @@ namespace OOP.lab3_2.bashlykova
                 this.C = C;
         }
 
-        public Numbers() { 
-            this.A = 0;
-            this.B = 0;
-            this.C = 0;
+        public Numbers() {
+            this.A = Properties.Settings.Default.A;
+            this.B = Properties.Settings.Default.B;
+            this.C = Properties.Settings.Default.C;
+            observers?.Invoke(this, null);
         }
         public int  get_A () { return A; }
 
@@ -47,6 +48,7 @@ namespace OOP.lab3_2.bashlykova
                 this.C = this.A;
             }
             recalculate_B();
+            notifyObservers();
             observers.Invoke(this, null);
         }
 
@@ -57,6 +59,7 @@ namespace OOP.lab3_2.bashlykova
             else
                 this.B = this.A;
             recalculate_B();
+            notifyObservers();
             observers.Invoke(this, null);
         }
 
@@ -69,7 +72,7 @@ namespace OOP.lab3_2.bashlykova
                 this.A = this.C;
             }
             recalculate_B();
-
+            notifyObservers();
             observers.Invoke(this, null);
         }
 
@@ -89,8 +92,18 @@ namespace OOP.lab3_2.bashlykova
             }
         }
 
+        private void notifyObservers()
+        {
+            observers?.Invoke(this, null);
+
+            Properties.Settings.Default.A = this.A;
+            Properties.Settings.Default.B = this.B;
+            Properties.Settings.Default.C = this.C;
+            Properties.Settings.Default.Save();
+        }
 
 
-        
+
+
     }
 }

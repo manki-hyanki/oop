@@ -106,6 +106,7 @@
             textBoxA.Name = "textBoxA";
             textBoxA.Size = new Size(240, 39);
             textBoxA.TabIndex = 5;
+            textBoxA.TextChanged += textBoxA_TextChanged;
             textBoxA.KeyDown += textBoxA_KeyDown;
             // 
             // textBoxB
@@ -114,6 +115,7 @@
             textBoxB.Name = "textBoxB";
             textBoxB.Size = new Size(240, 39);
             textBoxB.TabIndex = 6;
+            textBoxB.TextChanged += textBoxB_TextChanged;
             textBoxB.KeyDown += textBoxB_KeyDown;
             // 
             // textBoxC
@@ -122,6 +124,7 @@
             textBoxC.Name = "textBoxC";
             textBoxC.Size = new Size(240, 39);
             textBoxC.TabIndex = 7;
+            textBoxC.TextChanged += textBoxC_TextChanged;
             textBoxC.KeyDown += textBoxC_KeyDown;
             // 
             // numericUpDownA
