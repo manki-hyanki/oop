@@ -75,19 +75,59 @@ namespace OOP.lab3_2.bashlykova
             Numbers.set_C(trackBarC.Value);
         }
 
-        private void textBoxA_TextChanged(object sender, EventArgs e)
+
+
+        private void textBoxA_Leave(object sender, EventArgs e)
         {
-            textBoxA.Text = Numbers.get_A().ToString();
+            if (!int.TryParse(textBoxB.Text, out int newValue))
+                textBoxC.Text = Numbers.get_A().ToString();
+            else
+                Numbers.set_A(newValue);
         }
 
-        private void textBoxB_TextChanged(object sender, EventArgs e)
+
+
+        private void textBoxB_Leave(object sender, EventArgs e)
         {
-            textBoxB.Text = Numbers.get_B().ToString();
+            if (!int.TryParse(textBoxB.Text, out int newValue))
+                textBoxC.Text = Numbers.get_B().ToString();
+            else
+                Numbers.set_B(newValue);
         }
 
-        private void textBoxC_TextChanged(object sender, EventArgs e)
+        private void textBoxC_Leave(object sender, EventArgs e)
         {
-            textBoxC.Text = Numbers.get_C().ToString();
+            if (!int.TryParse(textBoxB.Text, out int newValue))
+                textBoxC.Text = Numbers.get_C().ToString();
+            else
+                Numbers.set_C(newValue);
+        }
+
+        private void textBoxA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxB_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // разрешаем цифры, Backspace и Delete
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '\b')
+            {
+                e.Handled = true; // игнорируем ввод
+            }
         }
     }
 }

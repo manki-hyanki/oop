@@ -15,7 +15,7 @@ namespace OOP.lab3_2.bashlykova
 
         public System.EventHandler observers; //уведомляет об изменении в модели другие части кода
 
-        // observers.Invoke(this, null); // покажет что изменили 
+        // observers?.Invoke(this, null); // покажет что изменили 
 
         public Numbers(int A, int B, int C) {
             if(A >= 0 && A <= 100)

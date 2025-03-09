@@ -37,7 +37,7 @@ namespace OOP.lab3.bashlykova
                     if (circle.ContainsPoint(e.X, e.Y))
                     {
                         circle.setIsSelected(true);
-                        // break;  // для выделения одного на пересечении
+                        //break;  // для выделения одного на пересечении
                     }
                 }
 

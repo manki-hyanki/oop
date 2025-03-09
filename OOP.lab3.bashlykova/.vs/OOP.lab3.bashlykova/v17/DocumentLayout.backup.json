@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop\\oop\\oop.lab3.bashlykova\\oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop\\oop\\oop.lab3.bashlykova\\oop.lab3.bashlykova\\ccircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\ccircle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop\\oop\\oop.lab3.bashlykova\\oop.lab3.bashlykova\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop\\oop\\oop.lab3.bashlykova\\oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|c:\\users\\xante\\source\\repos\\oop\\oop\\oop.lab3.bashlykova\\oop.lab3.bashlykova\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B20E87A8-1016-44E2-9503-7312104FBF57}|OOP.lab3.bashlykova\\OOP.lab3.bashlykova.csproj|solutionrelative:oop.lab3.bashlykova\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "OOP.lab3.bashlykova\\Form1.Designer.cs",
@@ -38,7 +38,8 @@
               "RelativeToolTip": "OOP.lab3.bashlykova\\Form1.Designer.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAMwCkAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T19:03:35.302Z"
+              "WhenOpened": "2025-02-19T19:03:35.302Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -48,34 +49,35 @@
               "RelativeDocumentMoniker": "OOP.lab3.bashlykova\\CCircle.cs",
               "ToolTip": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\CCircle.cs",
               "RelativeToolTip": "OOP.lab3.bashlykova\\CCircle.cs",
-              "ViewState": "AgIAAEwAAAAAAAAAAAAqwHQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T07:52:49.011Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs",
               "RelativeDocumentMoniker": "OOP.lab3.bashlykova\\Form1.cs",
               "ToolTip": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs",
               "RelativeToolTip": "OOP.lab3.bashlykova\\Form1.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAmwEMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-11T07:48:28.849Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "DocumentMoniker": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs",
               "RelativeDocumentMoniker": "OOP.lab3.bashlykova\\Form1.cs",
-              "ToolTip": "C:\\Users\\xante\\source\\repos\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
-              "RelativeToolTip": "..\\..\\..\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "ToolTip": "C:\\Users\\xante\\source\\repos\\oop\\oop\\OOP.lab3.bashlykova\\OOP.lab3.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
+              "RelativeToolTip": "OOP.lab3.bashlykova\\Form1.cs [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-11T07:46:28.541Z"
+              "WhenOpened": "2025-02-11T07:46:28.541Z",
+              "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             }
           ]
         }
