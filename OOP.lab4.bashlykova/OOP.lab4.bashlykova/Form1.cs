@@ -12,6 +12,7 @@ namespace OOP.lab4.bashlykova
         public bool btnCircle_con = false;
         public bool btnRectangle_con = false;
         public Color color = Color.Black;
+        public int size;
 
         //private Shapes square;
 
@@ -36,10 +37,25 @@ namespace OOP.lab4.bashlykova
             shapes_container.DrawAll(e.Graphics);
         }
 
-        private void changeColorSelectedShapes(Color color) {
-            foreach (Shapes shape in shapes_container.Get_Shapes()) {
-                if (shape.getIsSelected()) {
+        private void changeColorSelectedShapes(Color color)
+        {
+            foreach (Shapes shape in shapes_container.Get_Shapes())
+            {
+                if (shape.getIsSelected())
+                {
                     shape.setColor(color);
+                }
+            }
+
+        }
+
+        private void changeSizeSelectedShapes(int x)
+        {
+            foreach (Shapes shape in shapes_container.Get_Shapes())
+            {
+                if (shape.getIsSelected())
+                {
+                    shape.ChangeSize(x);
                 }
             }
 
@@ -75,19 +91,19 @@ namespace OOP.lab4.bashlykova
             else if (btnSquare_con)
             {
 
-                Shapes newShape = new Square(e.X, e.Y,color);
+                Shapes newShape = new Square(e.X, e.Y, color, size);
                 shapes_container.Add_Shapes(newShape);
             }
 
             else if (btnCircle_con)
             {
-                Shapes newShape = new Circle(e.X, e.Y,color);
+                Shapes newShape = new Circle(e.X, e.Y, color, size);
                 shapes_container.Add_Shapes(newShape);
             }
 
             else if (btnRectangle_con)
             {
-                Shapes newShape = new Rectangle(e.X, e.Y,color);
+                Shapes newShape = new Rectangle(e.X, e.Y, color, size);
                 shapes_container.Add_Shapes(newShape);
             }
 
@@ -140,12 +156,53 @@ namespace OOP.lab4.bashlykova
             changeColorSelectedShapes(color);
         }
 
-        public Color getColor() 
-        { 
+        public Color getColor()
+        {
             return color;
         }
 
-       
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+
+                var shapesToRemove = new List<Shapes>();
+
+                foreach (Shapes shape in shapes_container.Get_Shapes())
+                {
+                    if (shape.getIsSelected())
+                    {
+                        shapesToRemove.Add(shape);
+                    }
+
+                }
+
+                foreach (var shape in shapesToRemove)
+                {
+                    shapes_container.Remove_Shapes(shape);
+                }
+
+                panel1.Invalidate();
+            }
+        }
+
+        private void Ï‡ÎÂÌ¸ÍËÈToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            size = 50;
+            changeSizeSelectedShapes(size);
+        }
+
+        private void Ó·˚˜Ì˚ÈToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            size = 100;
+            changeSizeSelectedShapes(size);
+        }
+
+        private void ·ÓÎ¸¯ÓÈToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            size = 200;
+            changeSizeSelectedShapes(size);
+        }
     }
 }
 

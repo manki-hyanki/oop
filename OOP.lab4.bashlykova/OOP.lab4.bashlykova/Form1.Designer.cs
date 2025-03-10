@@ -40,13 +40,15 @@
             tsbtnYellow = new ToolStripButton();
             tsbtnRed = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
-            toolStripLabel2 = new ToolStripLabel();
             toolStripDropDownButton1 = new ToolStripDropDownButton();
+            маленькийToolStripMenuItem = new ToolStripMenuItem();
+            обычныйToolStripMenuItem = new ToolStripMenuItem();
+            большойToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator3 = new ToolStripSeparator();
             toolStripLabel3 = new ToolStripLabel();
             toolStripLabel4 = new ToolStripLabel();
             toolStrip1 = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
+            toolStripLabel2 = new ToolStripSeparator();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -156,20 +158,36 @@
             toolStripSeparator2.Name = "toolStripSeparator2";
             toolStripSeparator2.Size = new Size(6, 84);
             // 
-            // toolStripLabel2
-            // 
-            toolStripLabel2.Name = "toolStripLabel2";
-            toolStripLabel2.Size = new Size(173, 78);
-            toolStripLabel2.Text = "toolStripLabel2";
-            // 
             // toolStripDropDownButton1
             // 
-            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { маленькийToolStripMenuItem, обычныйToolStripMenuItem, большойToolStripMenuItem });
             toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
             toolStripDropDownButton1.ImageTransparentColor = Color.Magenta;
             toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            toolStripDropDownButton1.Size = new Size(54, 78);
-            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(188, 78);
+            toolStripDropDownButton1.Text = "Размер фигур";
+            // 
+            // маленькийToolStripMenuItem
+            // 
+            маленькийToolStripMenuItem.Name = "маленькийToolStripMenuItem";
+            маленькийToolStripMenuItem.Size = new Size(359, 44);
+            маленькийToolStripMenuItem.Text = "маленький";
+            маленькийToolStripMenuItem.Click += маленькийToolStripMenuItem_Click;
+            // 
+            // обычныйToolStripMenuItem
+            // 
+            обычныйToolStripMenuItem.Name = "обычныйToolStripMenuItem";
+            обычныйToolStripMenuItem.Size = new Size(359, 44);
+            обычныйToolStripMenuItem.Text = "обычный";
+            обычныйToolStripMenuItem.Click += обычныйToolStripMenuItem_Click;
+            // 
+            // большойToolStripMenuItem
+            // 
+            большойToolStripMenuItem.Name = "большойToolStripMenuItem";
+            большойToolStripMenuItem.Size = new Size(359, 44);
+            большойToolStripMenuItem.Text = "большой";
+            большойToolStripMenuItem.Click += большойToolStripMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
@@ -193,7 +211,7 @@
             // toolStrip1
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnSquare, tsbtnCircle, tsbtnRectangle, toolStripSeparator1, toolStripLabel1, tsbtnCyan, tsbtnLime, tsbtnYellow, tsbtnRed, toolStripSeparator2, toolStripLabel2, toolStripDropDownButton1, toolStripSeparator3, toolStripLabel3, toolStripLabel4, toolStripButton1 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnSquare, tsbtnCircle, tsbtnRectangle, toolStripSeparator1, toolStripLabel1, tsbtnCyan, tsbtnLime, tsbtnYellow, tsbtnRed, toolStripSeparator2, toolStripLabel2, toolStripDropDownButton1, toolStripSeparator3, toolStripLabel3, toolStripLabel4 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(2643, 84);
@@ -201,14 +219,10 @@
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // toolStripLabel2
             // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(46, 78);
-            toolStripButton1.Text = "toolStripButton1";
+            toolStripLabel2.Name = "toolStripLabel2";
+            toolStripLabel2.Size = new Size(6, 84);
             // 
             // Form1
             // 
@@ -221,6 +235,7 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            KeyDown += Form1_KeyDown;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -240,12 +255,14 @@
         private ToolStripButton tsbtnYellow;
         private ToolStripButton tsbtnRed;
         private ToolStripSeparator toolStripSeparator2;
-        private ToolStripLabel toolStripLabel2;
         private ToolStripDropDownButton toolStripDropDownButton1;
         private ToolStripSeparator toolStripSeparator3;
         private ToolStripLabel toolStripLabel3;
         private ToolStripLabel toolStripLabel4;
         private ToolStrip toolStrip1;
-        private ToolStripButton toolStripButton1;
+        private ToolStripMenuItem маленькийToolStripMenuItem;
+        private ToolStripMenuItem обычныйToolStripMenuItem;
+        private ToolStripMenuItem большойToolStripMenuItem;
+        private ToolStripSeparator toolStripLabel2;
     }
 }

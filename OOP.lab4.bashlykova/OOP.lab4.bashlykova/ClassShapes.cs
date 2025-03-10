@@ -14,6 +14,7 @@ namespace OOP.lab4.bashlykova
             bool isSelected = false;
             Color color;  //структура color 
             int x, y;
+            int size;
 
         protected Shapes(){}
 
@@ -39,6 +40,11 @@ namespace OOP.lab4.bashlykova
 
         }
 
+        public void ChangeSize(int x)
+        {
+            setSize(x);
+        }
+
         public abstract bool ContainsPoint(int pointX, int pointY);
 
         public void setIsSelected(bool isSelected)
@@ -61,6 +67,16 @@ namespace OOP.lab4.bashlykova
             return color;
         }
 
+        public int getSize()
+        {
+            return size;
+        }
+
+        public void setSize(int size)
+        {
+            this.size = size;
+        }
+
         public int getX()
         { // геттер для Х
             return x;
@@ -81,28 +97,30 @@ namespace OOP.lab4.bashlykova
     }
 
     internal class Square : Shapes {
-        private
-            const int SideLength = 160;
+        //private
+            //const int SideLength = 160;
 
         public Square(){
             this.setX(0);
             this.setY(0);
+            this.setSize(0);
         }
-        public Square(int x, int y, Color color)
+        public Square(int x, int y, Color color, int size)
         {
             this.setX(x);
             this.setY(y);
             this.setColor(color);
+            this.setSize(size);
         } // конструктор с параметрами
 
         public override void DoSpecific(Graphics g, Pen pen)
         {
 
-            int topLeftX = getX() - SideLength / 2; // коор верз лев угла квадрата
-            int topLeftY = getY() - SideLength / 2;
+            int topLeftX = getX() - getSize() / 2; // коор верз лев угла квадрата
+            int topLeftY = getY() - getSize() / 2;
 
             // рисуем квадрат
-            g.DrawRectangle(pen, topLeftX, topLeftY, SideLength, SideLength);
+            g.DrawRectangle(pen, topLeftX, topLeftY, getSize(), getSize());
             pen.Dispose();
         }
 
@@ -110,10 +128,10 @@ namespace OOP.lab4.bashlykova
         public override bool ContainsPoint(int pointX, int pointY)
         {
             // вычисляем границы квадрата
-            int left = getX() - SideLength / 2;
-            int right = getX() + SideLength / 2;
-            int top = getY() - SideLength / 2;
-            int bottom = getY() + SideLength / 2;
+            int left = getX() - getSize() / 2;
+            int right = getX() + getSize() / 2;
+            int top = getY() - getSize() / 2;
+            int bottom = getY() + getSize() / 2;
 
             // находится ли точка внутри квадрата
             return pointX >= left && pointX <= right && pointY >= top && pointY <= bottom;
@@ -122,56 +140,66 @@ namespace OOP.lab4.bashlykova
 
     internal class Circle : Shapes
     {
-        private
-            const int r = 100;
+        //private
+            //const int r = 100;
 
         public Circle()
         {
             this.setX(0);
             this.setY(0);
+            setSize(0);
         }
-        public Circle(int x, int y, Color color)
+        public Circle(int x, int y, Color color, int size)
         {
             this.setX(x);
             this.setY(y);
             this.setColor(color);
+            setSize(size);
         } // конструктор с параметрами
 
         public override void DoSpecific(Graphics g, Pen pen)
         {
-            g.DrawEllipse(pen, getX() - r, getY() - r, r * 2, r * 2);
+            g.DrawEllipse(pen, getX() - getSize(), getY() - getSize(), getSize() * 2, getSize() * 2);
 
         }
 
         public override bool ContainsPoint(int pointX, int pointY)
         {
             double distance = Math.Sqrt(Math.Pow(pointX - getX(), 2) + Math.Pow(pointY - getY(), 2));
-            return distance <= r;
+            return distance <= getSize();
         }
     };
 
     internal class Rectangle : Shapes
     {
         private
-         const int Width = 260; 
-         const int Height = 160;
-
+         int Width;
 
         public Rectangle()
         {
             this.setX(0);
             this.setY(0);
+            setSize(0);
+            this.Width = 0;
+
         }
-        public Rectangle(int x, int y, Color color)
+        public Rectangle(int x, int y, Color color, int size)
         {
             this.setX(x);
             this.setY(y);
             this.setColor(color);
+            this.Width = size;
+            setSize(size/2);
+
         } // конструктор с параметрами
 
+        public int getWidth()
+        { // геттер для Х
+            return Width;
+        }
         public override void DoSpecific(Graphics g, Pen pen)
         {
-            g.DrawRectangle(pen, getX(), getY(), Width, Height);
+            g.DrawRectangle(pen, getX(), getY(), Width, getSize());
         }
 
 
@@ -179,7 +207,7 @@ namespace OOP.lab4.bashlykova
         {
             //находится ли точка внутри прямоугольника
             return pointX >= getX() && pointX <= getX() + Width &&
-                   pointY >= getY() && pointY <= getY() + Height;
+                   pointY >= getY() && pointY <= getY() + getSize();
         }
     }
 }
