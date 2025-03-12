@@ -14,15 +14,9 @@ namespace OOP.lab4.bashlykova
         public Color color = Color.Black;
         public int size;
 
-        //private Shapes square;
-
-
         public Form1()
         {
             InitializeComponent();
-            //square = new Square();
-
-            tsbtnCyan.Click += tsbtnCyan_Click;
 
         }
 
@@ -37,25 +31,40 @@ namespace OOP.lab4.bashlykova
             shapes_container.DrawAll(e.Graphics);
         }
 
-        private void changeColorSelectedShapes(Color color)
+        public void moveSelectedShapes(int dx, int dy)
+        {
+            foreach (Shapes shape in shapes_container.Get_Shapes())
+            {
+                if (shape.getIsSelected())
+                {
+                    int newX = shape.getX() + dx;
+                    int newY = shape.getY() + dy;
+                    shape.move(panel1.Width, panel1.Height, dx, dy);
+                }
+            }
+        }
+
+        private void changeColorSelectedShapes(Color color) // функция для изменения цветы выд фигур
         {
             foreach (Shapes shape in shapes_container.Get_Shapes())
             {
                 if (shape.getIsSelected())
                 {
                     shape.setColor(color);
+                    panel1.Invalidate();
                 }
             }
 
         }
 
-        private void changeSizeSelectedShapes(int x)
+        private void changeSizeSelectedShapes(int x) // функция для изменения размера выд фигур
         {
             foreach (Shapes shape in shapes_container.Get_Shapes())
             {
                 if (shape.getIsSelected())
                 {
-                    shape.ChangeSize(x);
+                    shape.ChangeSize(size, panel1.Width, panel1.Height);
+                    panel1.Invalidate();
                 }
             }
 
@@ -110,7 +119,41 @@ namespace OOP.lab4.bashlykova
 
             panel1.Invalidate();
         }
+        private void Form1_KeyDown(object sender, KeyEventArgs e) // удаление фигур
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
 
+                var shapesToRemove = new List<Shapes>();
+
+                foreach (Shapes shape in shapes_container.Get_Shapes())
+                {
+                    if (shape.getIsSelected())
+                    {
+                        shapesToRemove.Add(shape);
+                    }
+
+                }
+
+                foreach (var shape in shapesToRemove)
+                {
+                    shapes_container.Remove_Shapes(shape);
+                }
+
+                panel1.Invalidate();
+            }
+
+            if (e.KeyCode == Keys.A)     // проверяем какая кнопка нажата W A S D и перемещаем
+                moveSelectedShapes(-10, 0);
+            else if (e.KeyCode == Keys.W)
+                moveSelectedShapes(0, -10);
+            else if (e.KeyCode == Keys.S)
+                moveSelectedShapes(0, 10);
+            else if (e.KeyCode == Keys.D)
+                moveSelectedShapes(10, 0);
+            panel1.Invalidate();
+
+        }
         private void tsbtnSquare_Click(object sender, EventArgs e)
         {
             btnCircle_con = false;
@@ -156,35 +199,6 @@ namespace OOP.lab4.bashlykova
             changeColorSelectedShapes(color);
         }
 
-        public Color getColor()
-        {
-            return color;
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-
-                var shapesToRemove = new List<Shapes>();
-
-                foreach (Shapes shape in shapes_container.Get_Shapes())
-                {
-                    if (shape.getIsSelected())
-                    {
-                        shapesToRemove.Add(shape);
-                    }
-
-                }
-
-                foreach (var shape in shapesToRemove)
-                {
-                    shapes_container.Remove_Shapes(shape);
-                }
-
-                panel1.Invalidate();
-            }
-        }
 
         private void маленькийToolStripMenuItem_Click(object sender, EventArgs e)
         {

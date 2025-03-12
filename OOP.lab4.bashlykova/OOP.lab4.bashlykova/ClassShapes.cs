@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,13 +41,20 @@ namespace OOP.lab4.bashlykova
 
         }
 
-        public void ChangeSize(int x)
+         public void move(int w, int h, int dx, int dy)
         {
-            setSize(x);
+            if (isAvailableLocation(w, h, dx, dy)) // если не выходит за границы - перемешаем 
+            {
+                this.x += dx;
+                this.y += dy;
+            }
         }
 
-        public abstract bool ContainsPoint(int pointX, int pointY);
+        public abstract bool isAvailableLocation(int w, int h, int dX, int dY);
 
+        public abstract bool ContainsPoint(int pointX, int pointY); // попал ли курсор в фигуру
+
+        // гет и сет для проверки выделения фигуры
         public void setIsSelected(bool isSelected)
         {
             this.isSelected = isSelected;
@@ -57,16 +65,18 @@ namespace OOP.lab4.bashlykova
             return isSelected;
         }
 
+        // гет и сет для цвета фигур
         public void setColor(Color color)
         {
             this.color = color;
-        }
+        } 
 
         public Color getColor()
         {
             return color;
         }
 
+        // гет и сет для оазмера фигур
         public int getSize()
         {
             return size;
@@ -76,6 +86,34 @@ namespace OOP.lab4.bashlykova
         {
             this.size = size;
         }
+
+        public void ChangeSize(int newSize, int w, int h)
+        {
+            if (newSize > 0)
+            {
+                // Проверяем, будет ли фигура в пределах панели после изменения размера
+                int newWidth = getX() + newSize * 2;
+                int newHeight = getY() + newSize * 2;
+
+                if (isAvailableLocation(w, h, 0, 0) &&
+                    getX() - newSize >= 0 &&
+                    getY() - newSize >= 0 &&
+                    newWidth <= w &&
+                    newHeight <= h)
+                {
+                    setSize(newSize);
+                }
+            }
+            else
+            {
+                if (getSize() + newSize > 0)
+                {
+                    setSize(newSize);
+                }
+            }
+        }
+
+
 
         public int getX()
         { // геттер для Х
@@ -113,9 +151,19 @@ namespace OOP.lab4.bashlykova
             this.setSize(size);
         } // конструктор с параметрами
 
+        public override bool isAvailableLocation(int w, int h, int dX, int dY) //проверяем не выходит ли за границы панели
+        {
+            if (getY() + getSize() / 2 + dY >= getSize() && 
+                getX() + getSize() / 2 + dX >= getSize() && 
+                getY() + getSize() / 2 + dY <= h && 
+                getX() + getSize() / 2 + dX <= w)
+            {
+                return true;
+            }
+            return false;
+        }
         public override void DoSpecific(Graphics g, Pen pen)
         {
-
             int topLeftX = getX() - getSize() / 2; // коор верз лев угла квадрата
             int topLeftY = getY() - getSize() / 2;
 
@@ -157,6 +205,18 @@ namespace OOP.lab4.bashlykova
             setSize(size);
         } // конструктор с параметрами
 
+        public override bool isAvailableLocation(int w, int h, int dX, int dY)
+        {
+            if (getY() + dY >= getSize() &&
+            getX() + dX >= getSize() &&
+            getY() + getSize() + dY <= h &&
+            getX() + getSize() + dX <= w)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public override void DoSpecific(Graphics g, Pen pen)
         {
             g.DrawEllipse(pen, getX() - getSize(), getY() - getSize(), getSize() * 2, getSize() * 2);
@@ -193,10 +253,18 @@ namespace OOP.lab4.bashlykova
 
         } // конструктор с параметрами
 
-        public int getWidth()
-        { // геттер для Х
-            return Width;
+        public override bool isAvailableLocation(int w, int h, int dX, int dY)
+        {
+            if (getY() + dY >= 0 &&
+            getX() + dX >= 0 &&
+            getY() + getSize() + dY <= h &&
+            getX() + Width + dX <= w)
+            {
+                return true;
+            }
+            return false;
         }
+
         public override void DoSpecific(Graphics g, Pen pen)
         {
             g.DrawRectangle(pen, getX(), getY(), Width, getSize());

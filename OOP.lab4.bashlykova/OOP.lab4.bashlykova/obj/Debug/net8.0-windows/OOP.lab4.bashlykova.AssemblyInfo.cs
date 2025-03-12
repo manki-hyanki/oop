@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OOP.lab4.bashlykova")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+639ae04134ae7ee754de834c6a5ad6ebef30650b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54ebfc671046f8fc54c2c99ea00e881e30f7073d")]
 [assembly: System.Reflection.AssemblyProductAttribute("OOP.lab4.bashlykova")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OOP.lab4.bashlykova")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
