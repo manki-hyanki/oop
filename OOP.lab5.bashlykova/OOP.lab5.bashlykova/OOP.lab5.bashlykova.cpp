@@ -92,11 +92,170 @@ public:
 
 
 
-c
+class Base {
+    public:
+        Base() { printf("Конструктор Base\n"); }
+
+        Base(Base* obj) { printf("Конструктор через указатель Base\n"); }
+
+        Base(const Base& obj) { printf("Конструктор копирования Base\n"); }
+
+        virtual ~Base() { printf("Деструктор Base\n"); }
+};
+
+class Desc : public Base {
+public:
+    Desc() {printf("Конструктор Desc\n");}
+
+    Desc(Desc* obj) { printf("Конструктор через указатель Desc\n"); }
+
+    Desc(Desc& obj) { printf("Конструктор копирования Desc\n"); }
+
+    void specificMethod() {
+        cout << "Метод класса Desc\n";
+    }
+
+    ~Desc() { printf("Деструктор Desc\n"); }
+};
+
+void func1(Base obj) {
+
+    printf("func1 передача по значению\n");
+}
+
+void func2(Base* obj) {
+    printf("func2 передача по указателю\n");
+}
+
+void func3(Base& obj) {
+    printf("func3 передача по ссылке\n");
+}
+
+Base func11() {
+    Base obj;
+    return obj; // возврат по значению
+}
+
+Base* func21() {
+    static Base obj;
+    return &obj; // возврат указателя на статический объект
+}
+
+Base& func31() {
+    static Base obj;
+    return obj; // возврат ссылки на статический объект
+}
+
+Base* func4() {
+    Base* obj = new Base();
+    return obj; // возврат указателя на динамический объект
+}
+
+Base* func5() {
+    Base* obj = new Base();
+    return obj; // возврат указателя на динамический объект
+}
+
+Base* func6() {
+    Base* obj = new Base();
+    return obj; // возврат указателя на динамический объект
+}
+
+// приведение типов в функциях
+void func(Base* obj) {
+    Desc* desc = dynamic_cast<Desc*>(obj);
+    if (desc) {
+        cout << "Приведение успешно. Вызов метода Desc.\n";
+        desc->specificMethod();
+    }
+    else {
+        cout << "Приведение не удалось. Объект не является Desc.\n";
+    }
+}
+//приведение можно сделать, для этого добавляем полиморфиз, virtual деструктор Base
+
+void pass_object(unique_ptr<Desc>d3) {
+    d3->specificMethod();
+}
+
+shared_ptr<Desc>pass_object(shared_ptr<Desc>d) {
+    d->specificMethod();
+    return d;
+}
 
 int main()
 {
     setlocale(LC_ALL, "Russian");
+    
+    printf("============Передача объектов как параметр=============\n");
+    Base base;
+    Desc desc;
+
+    printf("============Передача Base=============\n");
+    func1(base); // создается копия и удаляется
+    func2(&base);
+    func3(base); 
+
+    printf("============Передача Desc=============\n");
+    func1(desc);
+    func2(&desc);
+    func3(desc);// копируется только часть относящаяся к Base
+
+    printf("============Возврат статических объектов=============\n");
+    Base b1 = func11(); // временный объект передается в переменную вызываются конструкторы и деструкторы
+    Base* b2 = func21(); // объект не копируется (нет конст деструк)
+    Base& b3 = func31(); // необход самостоятельно удалять объект
+
+    printf("============Возврат динамических объектов=============\n");
+    Base* b4 = func4(); // возврат указателя на динамический объект
+    Base* b5 = func5(); // возврат указателя на динамический объект
+    Base* b6 = func6(); // возврат указателя на динамический объект
+
+    delete b4;
+    delete b5;
+    delete b6;
+
+    printf("============Приведение объекста в функции=============\n");
+    Base* base1 = new Base();
+    Desc* desc1 = new Desc();
+
+    cout << "=== Передача Base ===\n";
+    func(base1); // приведение не удастся
+
+    cout << "=== Передача Desc ===\n";
+    func(desc1); // приведение успешно
+
+    delete base1;
+    delete desc1;
+
+    printf("============Умные указатели=============\n");
+
+    unique_ptr<Desc>d1 = make_unique<Desc>(); //обычный локал объект
+    pass_object(move(d1)); //теперь функция отвечает за жизнь объекта
+    d1->specificMethod();                    //удалится после выхода из зоны видимости
+
+   
+    //если создать сначала пустой ум указатель - ничего не выйдет
+    //unique_ptr<Desc>d2;
+    //d2 = d; ошибка
+
+    shared_ptr<Desc>d2 = make_shared<Desc>();
+    d2 = pass_object(d2);
+    shared_ptr<Desc>d3 = d2;
+    d3->specificMethod();
+
+    //unique_ptr декларирует: «Этот объект – мой, до тех пор, пока я
+    //явно его кому - то не передам.Пользоваться – пользуйтесь на здоровье,
+    //но отвечаю
+    //за его время жизни – я, этот объект меня не переживёт»
+
+   /* shared_ptr декларирует : 
+   «Этот объект – нужен, как минимум, мне, но может быть и
+   Rому - то ещё, я не против.Но пока он мне нужен – его никто
+   не сможет удалить»*/
+    
+
+
     Dog* d = new Dog();
     Animal* a = new Dog();
     Animal* an = new Animal();
@@ -214,9 +373,6 @@ int main()
         //реализации полиморфизма.
         //расширения функциональности.
         //работы с коллекциями объектов разных типов
-
-
-
 
         return 0;
     }
