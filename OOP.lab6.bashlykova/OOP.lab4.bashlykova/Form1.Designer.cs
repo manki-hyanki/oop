@@ -54,13 +54,13 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.None;
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel1.BackColor = SystemColors.Control;
             panel1.BorderStyle = BorderStyle.Fixed3D;
             panel1.Cursor = Cursors.Cross;
             panel1.Location = new Point(-3, 102);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1758, 1504);
+            panel1.Size = new Size(1401, 1068);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             panel1.MouseClick += panel1_MouseClick;
@@ -214,7 +214,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnSquare, tsbtnCircle, tsbtnRectangle, toolStripSeparator1, toolStripLabel1, tsbtnCyan, tsbtnLime, tsbtnYellow, tsbtnRed, toolStripSeparator2, toolStripLabel2, toolStripDropDownButton1, toolStripSeparator3, toolStripLabel3, toolStripLabel4 });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(3101, 84);
+            toolStrip1.Size = new Size(1398, 84);
             toolStrip1.Stretch = true;
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
@@ -229,7 +229,7 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(3101, 1605);
+            ClientSize = new Size(1398, 1171);
             Controls.Add(toolStrip1);
             Controls.Add(panel1);
             Name = "Form1";

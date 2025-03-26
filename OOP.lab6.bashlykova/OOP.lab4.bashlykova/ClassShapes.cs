@@ -41,7 +41,7 @@ namespace OOP.lab4.bashlykova
 
         }
 
-         public void move(int w, int h, int dx, int dy)
+         public virtual void move(int w, int h, int dx, int dy)
         {
             if (isAvailableLocation(w, h, dx, dy)) // если не выходит за границы - перемешаем 
             {
@@ -60,7 +60,7 @@ namespace OOP.lab4.bashlykova
             this.isSelected = isSelected;
         }
 
-        public bool getIsSelected()
+        public virtual bool getIsSelected()
         {
             return isSelected;
         }

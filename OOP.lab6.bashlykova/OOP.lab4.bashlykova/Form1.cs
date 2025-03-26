@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.DirectoryServices;
 
 namespace OOP.lab4.bashlykova
 {
@@ -85,7 +86,7 @@ namespace OOP.lab4.bashlykova
 
             foreach (Shapes existing_shape in shapes_container.Get_Shapes()) // для каждой фигуры в контейнере
             {
-                if (!isCtrlPressed) //если ctrl не нажат
+                if (!isCtrlPressed && existing_shape != null ) //если ctrl не нажат
                     existing_shape.setIsSelected(false); // устанавливает всем фигурам что они не выделены
             }
 
@@ -175,13 +176,13 @@ namespace OOP.lab4.bashlykova
             {
                 Group shapes_group = new Group(10);
 
-                var shapesToGroup = new List<Shapes>();
+                var shapesToGroup = new List<Shapes>(); //новый список для выбранных фигур
 
                 foreach (Shapes shape in shapes_container.Get_Shapes())
                 {
                     if (shape.getIsSelected())
                     {
-                        shapesToGroup.Add(shape);
+                        shapesToGroup.Add(shape);  //добавление в список shapesToGroup выбранных фигур
                     }
 
                 }
@@ -193,8 +194,47 @@ namespace OOP.lab4.bashlykova
                         //Log($"{shapes_container} ");
                 }
                 shapes_container.Add_Shapes(shapes_group); //добавление группы в контейнер
+
+
+                // сбрасыванеи выделения у всех фигур после создания группы
+                foreach (Shapes existing_shape in shapes_container.Get_Shapes()) // для каждой фигуры в контейнере
+                {
+                        existing_shape.setIsSelected(false); // устанавливает всем фигурам что они не выделены
+                }
+
                 panel1.Invalidate();
             }
+
+            if (e.KeyCode == Keys.U)
+            {
+                List<Shapes> shapesToAdd = new List<Shapes>(); // создаем 2 списка в которые будем класть те обьекты которые надо добавить и удалить
+                List<Shapes> shapesToRemove = new List<Shapes>();
+
+                foreach (Shapes shape in shapes_container.Get_Shapes())
+                {
+                    if (shape.getIsSelected() && shape is Group group) // проверка что shape выделен и явл группой, если да, то производится приведение типа шэйп к груп
+                    {
+                        foreach (Shapes i in Group.Ungroup(group)) {
+                            shapesToAdd.Add(i);
+                        }
+
+                        shapesToRemove.Add(shape);
+                    }
+                }
+                // Применяем изменения после завершения итерации
+                foreach (Shapes shape in shapesToAdd)
+                {
+                    if(shape != null)
+                    shapes_container.Add_Shapes(shape);
+                }
+
+                foreach (Shapes shape in shapesToRemove)
+                {
+                    shapes_container.Remove_Shapes(shape);
+                }
+                panel1.Invalidate();
+            }
+
         }
         private void tsbtnSquare_Click(object sender, EventArgs e)
         {

@@ -35,6 +35,7 @@ namespace OOP.lab4.bashlykova
         {
             foreach (var shape in Container)
             {
+                if(shape != null) 
                 shape.draw(g);
             }
         }

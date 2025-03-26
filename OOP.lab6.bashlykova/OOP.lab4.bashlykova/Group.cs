@@ -45,11 +45,17 @@ namespace OOP.lab6.bashlykova
 
         public override void setIsSelected(bool isSelected)
         {
+            this.isSelected = isSelected;
             foreach (Shapes shape in Get_Shapes_Group())
             {
                 if (shape != null)
                 shape.setIsSelected(isSelected);
             }
+        }
+
+        public override bool getIsSelected()
+        {
+            return isSelected;
         }
 
         public override void DoSpecific(Graphics g, Pen pen)
@@ -76,7 +82,6 @@ namespace OOP.lab6.bashlykova
             return false;
         }
 
-
         public override bool ContainsPoint(int pointX, int pointY) //проверяет всю группу на попадание курсора
         {
             for (int i = 0; i < _count; i++) {
@@ -99,12 +104,27 @@ namespace OOP.lab6.bashlykova
             }
         }
 
-        public void move(int w, int h, int dx, int dy)
+        public override void move(int w, int h, int dx, int dy)
         {
+            bool stop = false;
             for (int i = 0; i < _maxcount; i++)
             {
-                _shapes[i].move(w, h, dx, dy);
+                if (_shapes[i] != null && !_shapes[i].isAvailableLocation(w, h, dx, dy))
+                {
+                    stop = true;
+                }
             }
+            foreach (Shapes shape in _shapes)
+            {
+
+                if (shape != null && shape.isAvailableLocation(w, h, dx,dy) && !stop)
+                    shape.move(w, h, dx, dy);
+
+                else
+                    break;
+            }
+
+
         }
 
         public override bool isAvailableLocation(int w, int h, int dX, int dY) //проверяем не выходит ли за границы панели
@@ -119,6 +139,33 @@ namespace OOP.lab6.bashlykova
             return true;
         }
 
+
+        // метод принимает группу обьектов Shape, среди которых может быть и Group
+        // метод возвращает список обьектов Shape
+        public static List<Shapes> Ungroup(Group shape_gr)
+        {
+            // создается список куда мы будем помещать разгруппированные обьекты, который в итоге мы вернем
+            List<Shapes> shapesList = new List<Shapes>();
+
+
+            // цикл который проходится по всем обьектам группы
+            foreach (Shapes shape in shape_gr.Get_Shapes_Group())
+            {
+                // если обьект группа
+                if (shape is Group group)
+                {
+                    // вызвать у этой группы метод Ungroup, чтобы вернулся список обьектов из этой группы
+                    // затем этот список помещается в конец списка shapesList
+                    shapesList.AddRange(Ungroup(group));
+                }
+                // иначе добавить обьект в список
+                else {
+                    shapesList.Add(shape);
+                }
+            }
+
+            return shapesList;
+        }
         ~Group() //деструктор
         {
             for (int i = 0; i < _count; i++)  //удаляем ссылки
