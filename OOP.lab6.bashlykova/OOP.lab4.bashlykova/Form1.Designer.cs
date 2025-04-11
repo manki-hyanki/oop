@@ -49,7 +49,14 @@
             toolStripLabel4 = new ToolStripLabel();
             toolStrip1 = new ToolStrip();
             toolStripLabel2 = new ToolStripSeparator();
+            menuStrip1 = new MenuStrip();
+            файлToolStripMenuItem = new ToolStripMenuItem();
+            сохранитьToolStripMenuItem = new ToolStripMenuItem();
+            загрузитьToolStripMenuItem = new ToolStripMenuItem();
+            openFileDialog1 = new OpenFileDialog();
+            saveFileDialog1 = new SaveFileDialog();
             toolStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -212,7 +219,7 @@
             // 
             toolStrip1.ImageScalingSize = new Size(32, 32);
             toolStrip1.Items.AddRange(new ToolStripItem[] { tsbtnSquare, tsbtnCircle, tsbtnRectangle, toolStripSeparator1, toolStripLabel1, tsbtnCyan, tsbtnLime, tsbtnYellow, tsbtnRed, toolStripSeparator2, toolStripLabel2, toolStripDropDownButton1, toolStripSeparator3, toolStripLabel3, toolStripLabel4 });
-            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Location = new Point(0, 42);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1398, 84);
             toolStrip1.Stretch = true;
@@ -224,6 +231,41 @@
             toolStripLabel2.Name = "toolStripLabel2";
             toolStripLabel2.Size = new Size(6, 84);
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(32, 32);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(1398, 42);
+            menuStrip1.TabIndex = 2;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // файлToolStripMenuItem
+            // 
+            файлToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { сохранитьToolStripMenuItem, загрузитьToolStripMenuItem });
+            файлToolStripMenuItem.Name = "файлToolStripMenuItem";
+            файлToolStripMenuItem.Size = new Size(90, 38);
+            файлToolStripMenuItem.Text = "Файл";
+            // 
+            // сохранитьToolStripMenuItem
+            // 
+            сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
+            сохранитьToolStripMenuItem.Size = new Size(359, 44);
+            сохранитьToolStripMenuItem.Text = "Сохранить";
+            сохранитьToolStripMenuItem.Click += сохранитьToolStripMenuItem_Click;
+            // 
+            // загрузитьToolStripMenuItem
+            // 
+            загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
+            загрузитьToolStripMenuItem.Size = new Size(359, 44);
+            загрузитьToolStripMenuItem.Text = "Загрузить";
+            загрузитьToolStripMenuItem.Click += загрузитьToolStripMenuItem_Click;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -231,13 +273,17 @@
             BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(1398, 1171);
             Controls.Add(toolStrip1);
+            Controls.Add(menuStrip1);
             Controls.Add(panel1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
             KeyDown += Form1_KeyDown;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -264,5 +310,11 @@
         private ToolStripMenuItem обычныйToolStripMenuItem;
         private ToolStripMenuItem большойToolStripMenuItem;
         private ToolStripSeparator toolStripLabel2;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem файлToolStripMenuItem;
+        private ToolStripMenuItem сохранитьToolStripMenuItem;
+        private ToolStripMenuItem загрузитьToolStripMenuItem;
+        private OpenFileDialog openFileDialog1;
+        private SaveFileDialog saveFileDialog1;
     }
 }

@@ -19,6 +19,19 @@ namespace OOP.lab4.bashlykova
 
         protected Shapes(){}
 
+        public virtual void save(StreamWriter SW)
+        {
+            SW.WriteLine(x + "\n" + y + "\n" + color.ToArgb() + "\n" + size + "\n");
+        }
+
+        public virtual void load(StreamReader SR, Shapes_Container factory = default(Shapes_Container))
+        {
+            this.x = int.Parse(SR.ReadLine());
+            this.y = int.Parse(SR.ReadLine());
+            this.color = Color.FromArgb(int.Parse(SR.ReadLine()));
+            this.size = int.Parse(SR.ReadLine());
+        }
+
         public virtual void DoSpecific(Graphics g, Pen pen) { } //template method
 
         public void draw(Graphics g)
@@ -66,7 +79,7 @@ namespace OOP.lab4.bashlykova
         }
 
         // гет и сет для цвета фигур
-        public void setColor(Color color)
+        public virtual void setColor(Color color)
         {
             this.color = color;
         } 
@@ -151,6 +164,12 @@ namespace OOP.lab4.bashlykova
             this.setSize(size);
         } // конструктор с параметрами
 
+        public override void save(StreamWriter SW)
+        {
+            SW.WriteLine('S');
+            base.save(SW);
+        }
+
         public override bool isAvailableLocation(int w, int h, int dX, int dY) //проверяем не выходит ли за границы панели
         {
             if (getY() + getSize() / 2 + dY >= getSize() && 
@@ -188,8 +207,6 @@ namespace OOP.lab4.bashlykova
 
     internal class Circle : Shapes
     {
-        //private
-            //const int r = 100;
 
         public Circle()
         {
@@ -204,6 +221,12 @@ namespace OOP.lab4.bashlykova
             this.setColor(color);
             setSize(size);
         } // конструктор с параметрами
+
+        public override void save(StreamWriter SW)
+        {
+            SW.WriteLine('C');
+            base.save(SW);
+        }
 
         public override bool isAvailableLocation(int w, int h, int dX, int dY)
         {
@@ -252,6 +275,12 @@ namespace OOP.lab4.bashlykova
             setSize(size/2);
 
         } // конструктор с параметрами
+
+        public override void save(StreamWriter SW)
+        {
+            SW.WriteLine('R');
+            base.save(SW);
+        }
 
         public override bool isAvailableLocation(int w, int h, int dX, int dY)
         {

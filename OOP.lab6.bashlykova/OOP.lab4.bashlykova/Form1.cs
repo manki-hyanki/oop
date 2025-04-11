@@ -12,7 +12,9 @@ namespace OOP.lab4.bashlykova
 
         Shapes_Container shapes_container = new Shapes_Container();
         Group shapes_group = new Group(10);
+        My_Shapes_Container Factory = new My_Shapes_Container();
 
+        public string filename;
         public bool btnSquare_con = false;
         public bool btnCircle_con = false;
         public bool btnRectangle_con = false;
@@ -28,13 +30,9 @@ namespace OOP.lab4.bashlykova
         {
 
         }
-        //public void Log(string message) //логирование
-        //{
-        //    logBox.AppendText($"[{DateTime.Now:HH:mm:ss}] {message}\n");
-        //    logBox.ScrollToCaret(); // Автопрокрутка
-        //}
 
-        private void panel1_Paint(object sender, PaintEventArgs e) 
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
             shapes_container.DrawAll(e.Graphics);//отрисовка объектов из контейнера
@@ -86,13 +84,13 @@ namespace OOP.lab4.bashlykova
 
             foreach (Shapes existing_shape in shapes_container.Get_Shapes()) // для каждой фигуры в контейнере
             {
-                if (!isCtrlPressed && existing_shape != null ) //если ctrl не нажат
+                if (!isCtrlPressed && existing_shape != null) //если ctrl не нажат
                     existing_shape.setIsSelected(false); // устанавливает всем фигурам что они не выделены
             }
 
             //создание объекта и передача туда объекта в кот попал курсор
-            Shapes clickedShape = shapes_container.FindShapeAtPoint(e.X, e.Y); 
-            
+            Shapes clickedShape = shapes_container.FindShapeAtPoint(e.X, e.Y);
+
 
             if (clickedShape != null) // если курсор попал в фигуру
             {
@@ -189,9 +187,9 @@ namespace OOP.lab4.bashlykova
 
                 foreach (var shape in shapesToGroup)
                 {
-                        shapes_group.Add_Shapes_Group(shape); //добавление фигур в группу (массив)
-                        shapes_container.Remove_Shapes(shape);
-                        //Log($"{shapes_container} ");
+                    shapes_group.Add_Shapes_Group(shape); //добавление фигур в группу (массив)
+                    shapes_container.Remove_Shapes(shape);
+                    //Log($"{shapes_container} ");
                 }
                 shapes_container.Add_Shapes(shapes_group); //добавление группы в контейнер
 
@@ -199,7 +197,7 @@ namespace OOP.lab4.bashlykova
                 // сбрасыванеи выделения у всех фигур после создания группы
                 foreach (Shapes existing_shape in shapes_container.Get_Shapes()) // для каждой фигуры в контейнере
                 {
-                        existing_shape.setIsSelected(false); // устанавливает всем фигурам что они не выделены
+                    existing_shape.setIsSelected(false); // устанавливает всем фигурам что они не выделены
                 }
 
                 panel1.Invalidate();
@@ -214,7 +212,8 @@ namespace OOP.lab4.bashlykova
                 {
                     if (shape.getIsSelected() && shape is Group group) // проверка что shape выделен и явл группой, если да, то производится приведение типа шэйп к груп
                     {
-                        foreach (Shapes i in Group.Ungroup(group)) {
+                        foreach (Shapes i in Group.Ungroup(group))
+                        {
                             shapesToAdd.Add(i);
                         }
 
@@ -224,8 +223,8 @@ namespace OOP.lab4.bashlykova
                 // Применяем изменения после завершения итерации
                 foreach (Shapes shape in shapesToAdd)
                 {
-                    if(shape != null)
-                    shapes_container.Add_Shapes(shape);
+                    if (shape != null)
+                        shapes_container.Add_Shapes(shape);
                 }
 
                 foreach (Shapes shape in shapesToRemove)
@@ -298,6 +297,42 @@ namespace OOP.lab4.bashlykova
         {
             size = 200;
             changeSizeSelectedShapes(size);
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+
+                filename = saveFileDialog1.FileName;
+                FileStream fcreate = File.Open(filename, FileMode.Create);
+
+                StreamWriter SW = new StreamWriter(fcreate);
+                SW.WriteLine(shapes_container.Get_Container_Size());
+                foreach (Shapes s in shapes_container.Get_Shapes())
+                {
+                    s.save(SW);
+                }
+                SW.Close();
+            }
+        }
+
+        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    shapes_container.Clear();
+                    shapes_container.LoadShapes(openFileDialog1.FileName);
+                    panel1.Invalidate(); // Принудительное обновление панели
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка загрузки: {ex.Message}", "Ошибка",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

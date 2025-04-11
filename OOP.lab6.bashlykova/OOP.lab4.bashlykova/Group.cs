@@ -24,22 +24,54 @@ namespace OOP.lab6.bashlykova
             {
                 _shapes[i] = null;
             }
-
-            Console.WriteLine("Этот текст появится в консоли!");
         }
 
-        public void Add_Shapes_Group(Shapes shape)
+        public override bool getIsSelected()
         {
-            if (_count < _maxcount)  // проверяем есть ли место в массиве
-            {
-                _shapes[_count] = shape;  // записываем в текущую позицию
-                _count++;
-            }
+            return isSelected;
+        }
+
+        public int Get_maxcount()
+        {
+            return _maxcount;
+        }
+
+        public int Get_count() { 
+            return _count;
         }
 
         public Shapes[] Get_Shapes_Group()
         {
             return _shapes;
+
+        }
+
+        public override void save(StreamWriter SW)
+        {
+            SW.WriteLine("G" + "\n" + Get_count() + "\n");
+            foreach (Shapes shape in _shapes)
+            {
+                if (shape != null) 
+                shape.save(SW);
+            }
+        }
+
+        public override void load(StreamReader reader, Shapes_Container factory)
+        {
+            int count = int.Parse(reader.ReadLine());
+            for (int i = 0; i < count; i++)
+            {
+                reader.ReadLine();
+                char code = (char)reader.Read();
+                reader.ReadLine();
+
+                Shapes shape = Shapes_Container.createShape(code); ;
+                if (shape != null)
+                {
+                    shape.load(reader, factory);
+                    Add_Shapes_Group(shape);
+                }
+            }
 
         }
 
@@ -53,9 +85,14 @@ namespace OOP.lab6.bashlykova
             }
         }
 
-        public override bool getIsSelected()
-        {
-            return isSelected;
+        public override void setColor(Color color) {
+            foreach (Shapes shape in Get_Shapes_Group())
+            {
+                if (shape != null)
+                {
+                    shape.setColor(color);
+                }
+            }
         }
 
         public override void DoSpecific(Graphics g, Pen pen)
@@ -65,21 +102,6 @@ namespace OOP.lab6.bashlykova
                 if(shape != null)
                 shape.draw(g); 
             }
-        }
-
-        public int Get_maxcount()
-        {
-            return _maxcount;
-        }
-
-        public bool Contains_Shape(Shapes shape)
-        {
-            for (int i = 0; i < _maxcount; i++)
-            {
-                if (_shapes[i] == shape)
-                    return true;
-            }
-            return false;
         }
 
         public override bool ContainsPoint(int pointX, int pointY) //проверяет всю группу на попадание курсора
@@ -92,16 +114,6 @@ namespace OOP.lab6.bashlykova
                 }
             }
             return false;
-        }
-        public void NewSetIsSelected(bool selected)
-        {
-            for (int i = 0; i < _count; i++)
-            {
-                if (_shapes[i] != null)
-                {
-                    _shapes[i].setIsSelected(selected);
-                }
-            }
         }
 
         public override void move(int w, int h, int dx, int dy)
@@ -131,12 +143,45 @@ namespace OOP.lab6.bashlykova
         {
             for (int i = 0; i < _maxcount; i++)
             {
-                if (!_shapes[i].isAvailableLocation(w, h, dX, dY))
+                if (_shapes[i] != null)
                 {
-                    return false;
+                    if (!_shapes[i].isAvailableLocation(w, h, dX, dY))
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
+        }
+
+        public void Add_Shapes_Group(Shapes shape)
+        {
+            if (_count < _maxcount)  // проверяем есть ли место в массиве
+            {
+                _shapes[_count] = shape;  // записываем в текущую позицию
+                _count++;
+            }
+        }
+
+        public bool Contains_Shape(Shapes shape)
+        {
+            for (int i = 0; i < _maxcount; i++)
+            {
+                if (_shapes[i] == shape)
+                    return true;
+            }
+            return false;
+        }
+
+        public void NewSetIsSelected(bool selected)
+        {
+            for (int i = 0; i < _count; i++)
+            {
+                if (_shapes[i] != null)
+                {
+                    _shapes[i].setIsSelected(selected);
+                }
+            }
         }
 
 
@@ -174,19 +219,6 @@ namespace OOP.lab6.bashlykova
             _shapes = null; //очищаем массив
 
         } 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
